@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import school from "../../assets/products/Plastic Id Card Holder.jpg";
+import school from "../../assets/products/plastic-id-card-holder.jpg";
 import visitingCard from "../../assets/products/brochure.jpg";
 import flexBanner from "../../assets/products/flex-banner.jpg";
 import poster from "../../assets/products/poster-printing.jpg";

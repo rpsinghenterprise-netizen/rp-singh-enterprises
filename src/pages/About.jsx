@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle, Award, Clock, Heart } from "lucide-react";
+import Aboutimg from "../assets/products/about-img.jpg";  
 
 
 const AboutHero = () => (
@@ -42,7 +43,7 @@ const AboutContent = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="../assets/products/flex-banner.jpg"
+                src={Aboutimg}
                 alt="Printing Press Facility"
                 className="w-full h-[420px] sm:h-[480px] object-cover"
               />
