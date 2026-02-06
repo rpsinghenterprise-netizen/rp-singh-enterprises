@@ -1,4 +1,4 @@
-import idCard from "../assets/products/plastic Id Card Holder.jpg";
+import idCard from "../assets/products/Plastic Id Card Holder.jpg";
 import visiting from "../assets/products/brochure.jpg";
 import banner from "../assets/products/flex-banner.jpg";
 import poster from "../assets/products/poster-printing.jpg";
