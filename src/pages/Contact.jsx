@@ -72,26 +72,40 @@ const Contact = () => {
   return (
     <>
       {/* HEADER */}
-      <section className="pt-32 pb-16 bg-gray-100 text-center">
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-pink-600 font-semibold text-sm uppercase tracking-wider mb-4 block"
-        >
-          Get In Touch
-        </motion.span>
+    
+            <section className="pt-40 pb-20 bg-[#374151] relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-        >
-          Contact <span className="text-pink-600">Us</span>
-        </motion.h1>
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block py-1.5 px-4 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 font-bold text-[10px] uppercase tracking-[0.4em] mb-6"
+          >
+            Get In Touch
+          </motion.span>
 
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Have a project in mind? We’d love to hear from you.
-        </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
+            Let’s Build Your <span className="text-pink-500 italic">Vision</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            Have a project in mind? We’d love to hear from you.
+          </motion.p>
+        </div>
       </section>
 
       {/* CONTENT */}
