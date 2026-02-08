@@ -125,7 +125,7 @@ const ServiceCard = ({ service }) => (
     className="group relative bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-pink-500/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-pink-900/5 flex flex-col h-full"
   >
     {/* Top Accent Line */}
-    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-rose-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+    <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-pink-500 to-rose-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
     <div className="p-8 flex flex-col h-full">
       <div className="flex items-center gap-4 mb-6">
@@ -159,12 +159,12 @@ const ServicesPage = () => {
     <div className="bg-slate-50 min-h-screen font-sans text-slate-900 selection:bg-pink-100 selection:text-pink-900">
       
       {/* Page Header */}
-      <section className="pt-40 pb-32 bg-[#374151] relative overflow-hidden">
+      <section className="pt-32 pb-24 sm:pt-40 sm:pb-32 bg-[#374151] relative overflow-hidden">
         {/* Abstract Background Design */}
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[80%] bg-pink-500/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[60%] bg-amber-500/10 blur-[100px] rounded-full" />
 
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -179,7 +179,7 @@ const ServicesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tight font-serif"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 sm:mb-8 tracking-tight font-serif"
           >
             Our <span className="italic text-pink-500">Services</span>
           </motion.h1>
@@ -188,7 +188,7 @@ const ServicesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-slate-300 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed font-sans font-light"
+            className="text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl sm:max-w-3xl mx-auto leading-relaxed font-sans font-light"
           >
             Merging traditional craftsmanship with cutting-edge technology to deliver 
             precision-engineered print solutions that elevate your brand.
@@ -197,14 +197,14 @@ const ServicesPage = () => {
       </section>
       
       {/* Services Grid */}
-      <section className="py-20 bg-white relative">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             {services.map((service) => (
               <ServiceCard key={service.id} service={service} />
@@ -213,13 +213,13 @@ const ServicesPage = () => {
             {/* "More" Card Filler */}
             <motion.div 
               variants={cardVariants}
-              className="rounded-2xl p-8 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center hover:border-pink-400 hover:bg-pink-50/30 transition-all duration-300 group cursor-pointer min-h-[300px]"
+              className="rounded-2xl p-6 sm:p-8 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center hover:border-pink-400 hover:bg-pink-50/30 transition-all duration-300 group cursor-pointer min-h-75"
             >
               <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-3xl text-slate-300 group-hover:text-pink-500 transition-colors">+</span>
               </div>
               <h3 className="text-lg font-bold text-slate-700 mb-2">Need a Custom Solution?</h3>
-              <p className="text-slate-500 text-sm max-w-[200px]">
+              <p className="text-slate-500 text-sm max-w-50">
                 Contact our engineering team for specialized project quotes.
               </p>
             </motion.div>
@@ -228,12 +228,12 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 md:py-32 bg-slate-900 text-white relative overflow-hidden">
         {/* Decorative Gradients */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-pink-900/20 blur-3xl rounded-full translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-1/2 h-full bg-purple-900/20 blur-3xl rounded-full -translate-x-1/2" />
 
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,16 +241,16 @@ const ServicesPage = () => {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">
               Ready to Start Your Project?
             </h2>
-            <p className="text-slate-400 text-lg mb-10 leading-relaxed">
+            <p className="text-slate-300 text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed">
               Get in touch with us today for a free quote. We're here to help bring your vision to life with professional quality.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-amber-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg shadow-black/50 hover:bg-amber-600 transition-all"
+              className="inline-flex items-center gap-3 bg-amber-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg shadow-black/50 hover:bg-amber-600 transition-all"
             >
               Contact Us Now
               <ArrowRight className="w-5 h-5" />

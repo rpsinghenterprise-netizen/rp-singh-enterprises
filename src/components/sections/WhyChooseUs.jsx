@@ -51,8 +51,8 @@ const itemVariants = {
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-28 bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a] text-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 sm:py-20 md:py-28 bg-linear-to-b from-[#0f0f0f] to-[#1a1a1a] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <motion.div
@@ -60,17 +60,17 @@ const WhyChooseUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-24"
+          className="text-center mb-16 sm:mb-20 md:mb-24"
         >
           <span className="text-pink-500 font-semibold text-sm uppercase tracking-[0.25em] mb-6 block">
             Why Choose Us
           </span>
 
-          <h2 className="text-4xl md:text-6xl font-serif font-semibold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-4 sm:mb-6">
             Trusted Excellence
           </h2>
 
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             We go above and beyond to deliver exceptional value and quality in
             every project we undertake.
           </p>
@@ -82,7 +82,7 @@ const WhyChooseUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-14"
         >
           {benefits.map((benefit) => (
             <motion.div

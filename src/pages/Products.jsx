@@ -1,68 +1,42 @@
 import { motion } from "framer-motion";
 import products from "../data/product";
+import { Sparkles } from "lucide-react";
+import ProductCard from "../components/sections/ProductsSection";
 
 const Products = () => {
   return (
-    <section className="pt-40 pb-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-[#f8fafc] py-16 sm:py-24 md:py-32">
 
-        {/* PAGE HEADER */}
-        <div className="text-center mb-16">
-          <span className="text-pink-600 text-sm font-semibold uppercase tracking-widest">
-            Our Products
-          </span>
-
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-4">
-            Complete Printing Solutions
-          </h1>
-
-          <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Explore our wide range of professional printing products crafted
-            with precision and premium quality.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Header Section */}
+        <div className="text-center mb-16 sm:mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-2 text-pink-500 mb-4 flex-wrap justify-center"
+          >
+            <Sparkles size={20} />
+            <span className="text-xs font-black uppercase tracking-[0.4em]">Professional Catalog</span>
+          </motion.div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 sm:mb-6 font-serif tracking-tighter leading-tight">
+            Quality Printing Solutions
+          </h2>
+          
+          <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto font-sans leading-relaxed">
+            Discover our range of high-quality printing products tailored to meet your business needs.
           </p>
         </div>
 
-        {/* PRODUCTS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Horizontal Scrolling / Grid Container */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-            >
-              {/* IMAGE */}
-              <div className="h-60 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* CONTENT */}
-              <div className="p-6 text-center">
-                <h3 className="font-serif text-xl font-bold text-gray-900">
-                  {product.title}
-                </h3>
-
-                <p className="text-gray-500 text-sm mt-2">
-                  {product.desc}
-                </p>
-
-                <button className="mt-6 px-6 py-2 text-sm rounded-full bg-pink-600 text-white hover:bg-pink-700 transition">
-                  Enquire Now
-                </button>
-              </div>
-            </motion.div>
+            <ProductCard key={product.id} product={product} index={index} />
           ))}
         </div>
-
       </div>
-    </section>
+    </div>
   );
 };
 

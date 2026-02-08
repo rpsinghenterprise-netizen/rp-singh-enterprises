@@ -58,8 +58,8 @@ const StarRating = ({ rating }) => (
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-28 bg-gradient-to-b from-[#393838] via-[#272525] to-[#0f0f0f] text-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 sm:py-20 md:py-28 bg-linear-to-b from-[#393838] via-[#272525] to-[#0f0f0f] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <motion.div
@@ -67,23 +67,23 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
           <span className="text-pink-500 uppercase tracking-[0.3em] text-sm font-semibold block mb-6">
             Testimonials
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-serif font-semibold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold mb-4 sm:mb-6">
             What Our Clients Say
           </h2>
 
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
             Real feedback from businesses who trust us with their printing needs.
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.id}
@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              className="relative bg-white text-gray-900 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all"
+              className="relative bg-white text-gray-900 rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all"
             >
               <Quote className="absolute top-8 right-8 text-gray-200 w-8 h-8" />
 
@@ -121,7 +121,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Stats Bar */}
-        <div className="mt-24 bg-white rounded-3xl shadow-xl px-10 py-10 flex flex-wrap justify-center gap-14 text-center">
+        <div className="mt-16 sm:mt-20 md:mt-24 bg-white rounded-3xl shadow-xl px-6 sm:px-10 py-8 sm:py-10 flex flex-wrap justify-center gap-8 sm:gap-10 md:gap-14 text-center">
           {[
             ["500+", "Happy Clients"],
             ["10+", "Years Experience"],
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
             ["4.9★", "Avg Rating"],
           ].map(([value, label], i) => (
             <div key={i}>
-              <h3 className="text-4xl font-bold text-pink-600 mb-1">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pink-600 mb-1">
                 {value}
               </h3>
               <p className="text-sm text-gray-500 tracking-wide">

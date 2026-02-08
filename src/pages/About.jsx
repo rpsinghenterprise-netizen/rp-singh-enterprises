@@ -15,7 +15,7 @@ const AboutHero = () => (
       </span>
       <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-gray-100 mb-6">
         Your Trusted Partner in{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-400">
+        <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-400 to-rose-400">
           Printing Excellence
         </span>
       </h1>
@@ -45,7 +45,7 @@ const AboutContent = () => {
               <img
                 src={Aboutimg}
                 alt="Printing Press Facility"
-                className="w-full h-[420px] sm:h-[480px] object-cover"
+                className="w-full h-64 sm:h-80 md:h-96 object-cover"
               />
             </div>
 

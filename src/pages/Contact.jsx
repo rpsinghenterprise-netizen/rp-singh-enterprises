@@ -72,17 +72,17 @@ const Contact = () => {
   return (
     <>
       {/* HEADER */}
-    
-            <section className="pt-40 pb-20 bg-[#374151] relative overflow-hidden">
+
+      <section className="pt-28 pb-16 sm:pt-40 sm:pb-20 bg-[#374151] relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
 
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block py-1.5 px-4 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 font-bold text-[10px] uppercase tracking-[0.4em] mb-6"
+            className="inline-block py-1.5 px-4 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 font-bold text-xs uppercase tracking-[0.4em] mb-4 sm:mb-6"
           >
             Get In Touch
           </motion.span>
@@ -91,7 +91,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-8 tracking-tighter"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             Let’s Build Your <span className="text-pink-500 italic">Vision</span>
@@ -101,7 +101,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-slate-300 text-base sm:text-lg max-w-xl sm:max-w-2xl mx-auto font-light leading-relaxed"
           >
             Have a project in mind? We’d love to hear from you.
           </motion.p>
@@ -109,35 +109,35 @@ const Contact = () => {
       </section>
 
       {/* CONTENT */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-16">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
 
           {/* INFO */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600">
+            <div className="flex items-center gap-3 mb-6 sm:mb-8">
+              <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600 shrink-0">
                 <MessageSquare />
               </div>
-              <h2 className="text-2xl font-semibold text-gray-900">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
                 Contact Information
               </h2>
             </div>
 
-            <p className="text-gray-600 mb-10">
+            <p className="text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base">
               Ready to start your next printing project? Reach out to us.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {contactInfo.map((info, i) => (
-                <div key={i} className="flex gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-pink-100 flex items-center justify-center text-pink-600">
+                <div key={i} className="flex gap-4 sm:gap-5">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-pink-100 flex items-center justify-center text-pink-600 shrink-0">
                     {info.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 uppercase">
+                    <p className="text-xs sm:text-sm text-gray-500 uppercase font-medium">
                       {info.label}
                     </p>
-                    <p className="text-lg font-medium text-gray-900">
+                    <p className="text-base sm:text-lg font-medium text-gray-900 mt-1">
                       {info.value}
                     </p>
                   </div>
@@ -150,23 +150,23 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="bg-gray-50 p-10 rounded-3xl shadow"
+              className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-3xl shadow"
             >
-              <h3 className="text-2xl font-semibold mb-8">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8">
                 Send Us a Message
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <input
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
                   required
-                  className="w-full px-5 py-4 rounded-xl border"
+                  className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border text-sm sm:text-base"
                 />
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <input
                     name="email"
                     type="email"
@@ -174,14 +174,14 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Email Address"
                     required
-                    className="w-full px-5 py-4 rounded-xl border"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border text-sm sm:text-base"
                   />
                   <input
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Phone Number"
-                    className="w-full px-5 py-4 rounded-xl border"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border text-sm sm:text-base"
                   />
                 </div>
 
@@ -192,12 +192,12 @@ const Contact = () => {
                   rows={5}
                   placeholder="Tell us about your project..."
                   required
-                  className="w-full px-5 py-4 rounded-xl border resize-none"
+                  className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border resize-none text-sm sm:text-base"
                 />
 
                 <button
                   disabled={isSubmitting}
-                  className="w-full bg-pink-600 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-pink-500 transition"
+                  className="w-full bg-pink-600 text-white py-3 sm:py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-pink-500 transition text-sm sm:text-base"
                 >
                   <Send size={18} />
                   {isSubmitting ? "Sending..." : "Get a Quote"}
