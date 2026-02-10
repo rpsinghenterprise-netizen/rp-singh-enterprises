@@ -161,8 +161,15 @@ const ServicesPage = () => {
       {/* Page Header */}
       <section className="pt-32 pb-24 sm:pt-40 sm:pb-32 bg-[#374151] relative overflow-hidden">
         {/* Abstract Background Design */}
-        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[80%] bg-pink-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[60%] bg-amber-500/10 blur-[100px] rounded-full" />
+           <div className="absolute inset-0 z-0">
+            <img 
+                src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1600&auto=format&fit=crop" 
+                alt="Printing Background" 
+                className="w-full h-full object-cover"
+            />
+            {/* Dark Gradient Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div

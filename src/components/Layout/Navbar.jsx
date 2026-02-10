@@ -1,8 +1,8 @@
-console.log("nav RENDERED");
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Menu, X } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Menu, X, Sparkles } from "lucide-react";
+import { NavLink, useLocation } from "react-router-dom";
+import logo from "../../assets/img/logo.jpg";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -15,59 +15,76 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
+  // Handle scroll detection for background transition
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Ensure scroll to top on link clicks
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const linkClass = ({ isActive }) =>
-    `text-sm px-4 py-1.5 rounded-full transition-all ${
+    `text-[11px] uppercase tracking-[0.2em] font-bold px-4 py-1.5 transition-all duration-300 ${
       isActive
-        ? "bg-white/10 text-pink-500"
-        : "text-gray-300 hover:text-white"
+        ? "text-[#c5a059] border-b border-[#c5a059]"
+        : "text-slate-400 hover:text-white"
     }`;
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-black/90 backdrop-blur-md py-4 border-b border-white/10"
-          : "bg-transparent py-6"
+          ? "bg-[#0a0f1a]/90 backdrop-blur-xl py-4 border-b border-slate-800/50 shadow-2xl"
+          : "bg-transparent py-8"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl">
-            RP
+        {/* Logo - Matching Footer & About branding */}
+        <NavLink to="/" onClick={handleNavClick} className="flex items-center gap-4 group">
+          <div className="w-12 group-hover:scale-110 rounded-xl">
+            <img src={logo} 
+            alt="R.P. Singh Enterprises Logo" className="w-full h-full object-cover rounded-xl" />
           </div>
-          <span className="text-white text-lg font-semibold hidden sm:block">
-            R.P. SINGH PRINTING SERVICES
-          </span>
+          <div className="flex flex-col leading-none">
+            <span className="text-white text-sm font-serif tracking-[0.2em] uppercase font-light hidden sm:block">
+              R.P. Singh
+            </span>
+            <span className="text-[#c5a059] text-[8px] font-bold tracking-[0.3em] uppercase hidden sm:block opacity-80 mt-1">
+              Enterprises
+            </span>
+          </div>
         </NavLink>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
               className={linkClass}
+              onClick={handleNavClick}
             >
               {link.name}
             </NavLink>
           ))}
-          <button className="p-2 rounded-full bg-white/5 text-gray-300 border border-white/10">
-            <Moon size={18} />
-          </button>
+          
+          {/* Subtle CTA Sparkle */}
+          <div className="pl-4 border-l border-slate-800 ml-2">
+            <Sparkles className="w-4 h-4 text-[#c5a059] opacity-40 animate-pulse" />
+          </div>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden p-2 text-slate-400 hover:text-[#c5a059] transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -78,18 +95,22 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            className="md:hidden bg-black/95 border-b border-white/10 overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden bg-[#0a0f1a]/95 backdrop-blur-2xl border-b border-slate-800/50 overflow-hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
+            <div className="flex flex-col p-8 gap-6">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-gray-300 text-lg hover:text-pink-500"
+                  onClick={handleNavClick}
+                  className={({ isActive }) => 
+                    `text-[10px] uppercase tracking-[0.3em] font-bold transition-colors ${
+                      isActive ? "text-[#c5a059]" : "text-slate-400"
+                    }`
+                  }
                 >
                   {link.name}
                 </NavLink>

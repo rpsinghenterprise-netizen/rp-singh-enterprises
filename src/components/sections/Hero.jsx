@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import leftImg from "../../assets/products/abstract-colorful.jpg";
 
@@ -68,9 +69,11 @@ const Hero = () => {
             Our Products <ArrowRight size={20} />
           </button>
 
-          <button className="px-8 py-4 border border-white/30 text-white rounded-full hover:bg-white/10 transition">
+         <Link to ="/contact" >
+          <button className="px-8 py-4 border border-white/30 text-white font-bold rounded-full hover:border-pink-600 hover:text-pink-600 transition hover:scale-105">
             Get a Quote
           </button>
+          </Link>
         </motion.div>
       </div>
     </div>
