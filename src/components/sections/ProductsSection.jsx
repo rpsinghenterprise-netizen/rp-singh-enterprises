@@ -22,6 +22,7 @@ const products = [
     title: "Flex Banner",
     desc: "High-quality flex banners",
     img: flexBanner,
+    isComingSoon: true,
   },
   {
     title: "Poster Printing",
@@ -92,20 +93,12 @@ function ProductsSection({ product, index }) {
           {product.desc}
         </p>
 
-        {product.isComingSoon ? (
-          <motion.a
-            href="/products"
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 text-white bg-pink-600 px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-pink-700 transition-all"
-          >
-            View All Products
-          </motion.a>
-        ) : (
+        {!product.isComingSoon && (
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="mt-6 text-pink-600 text-xs font-black uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
+           className="mt-6 text-white bg-pink-600 px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-pink-700 transition-all"
           >
-            Enquire Now <Sparkles size={14} />
+            View All Products 
           </motion.button>
         )}
 
