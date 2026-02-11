@@ -66,11 +66,17 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 bg-white relative overflow-hidden font-sans">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-pink-50 rounded-full blur-3xl opacity-50 -z-10" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -z-10" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <div className="relative h-[450px] sm:h-[500px] flex items-center justify-center overflow-hidden" />
+         {/* Background Image Container */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" 
+            alt="Contact Background" 
+            className="w-full h-full object-cover"
+          />
+          {/* Dark Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/70 to-slate-950/90" />
+        </div>
           
           {/* Left Column: Info & Branding */}
           <div className="lg:col-span-5">

@@ -5,20 +5,20 @@ const testimonials = [
   {
     id: 1,
     name: "Rajesh Kumar",
-    role: "Business Owner",
-    company: "Kumar Enterprises",
+    role: "Principal",
+    company: "city central public school",
     rating: 5,
     review:
-      "Exceptional quality and timely delivery! R.P. Singh Printing has been our go-to partner for all business cards and brochures.",
+     "The ID cards were printed with excellent clarity and durability. The lamination quality and finish were truly professional. Highly recommended for bulk school ID card orders.",
   },
   {
     id: 2,
     name: "Priya Sharma",
-    role: "Marketing Manager",
+    role: "Founder",
     company: "TechStart Solutions",
     rating: 5,
     review:
-      "The flex banners they printed for our event were stunning. The colors were vibrant and the finish was premium.",
+      "Our visiting cards look premium and elegant. The paper quality and print sharpness exceeded expectations. We’ve received great feedback from our clients.",
   },
   {
     id: 3,
@@ -123,10 +123,10 @@ const TestimonialsSection = () => {
         {/* Stats Bar */}
         <div className="mt-16 sm:mt-20 md:mt-24 bg-white rounded-3xl shadow-xl px-6 sm:px-10 py-8 sm:py-10 flex flex-wrap justify-center gap-8 sm:gap-10 md:gap-14 text-center">
           {[
-            ["500+", "Happy Clients"],
-            ["10+", "Years Experience"],
-            ["50K+", "Projects Done"],
-            ["4.9★", "Avg Rating"],
+            ["100+", "Happy Clients"],
+            ["3+", "Years Experience"],
+            ["10K+", "Projects Done"],
+            ["4.8★", "Avg Rating"],
           ].map(([value, label], i) => (
             <div key={i}>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pink-600 mb-1">

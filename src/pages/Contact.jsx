@@ -73,10 +73,17 @@ const Contact = () => {
     <>
       {/* HEADER */}
 
-      <section className="pt-28 pb-16 sm:pt-40 sm:pb-20 bg-[#374151] relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
+        <section className="relative h-[450px] sm:h-[500px] flex items-center justify-center overflow-hidden">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://plus.unsplash.com/premium_photo-1661301053519-880c720aadcd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            alt="Contact Background" 
+            className="w-full h-full object-cover"
+          />
+          {/* Dark Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/70 to-slate-950/90" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.span

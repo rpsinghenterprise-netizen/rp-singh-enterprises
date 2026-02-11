@@ -84,7 +84,7 @@ const Footer = () => {
                 <span className="text-black font-serif font-bold text-xl">RP</span>
               </motion.div>
               <span className="text-white font-serif text-xl font-semibold">
-                R.P. Singh
+                R.P. Singh Enterprises
               </span>
             </Link>
 
@@ -162,16 +162,16 @@ const Footer = () => {
                 City – 110001
               </motion.li>
               <motion.li variants={linkVariants}>
-                <a href="tel:+919876543210" className="hover:text-pink-500 transition">
+                <a href="tel:+919304259943" className="hover:text-pink-500 transition">
                   +91  93042 59943
                 </a>
               </motion.li>
               <motion.li variants={linkVariants}>
                 <a
-                  href="mailto:info@rpsinghprinting.com"
+                  href="mailto:rajsunny223@gmail.com"
                   className="hover:text-pink-500 transition"
                 >
-                  info@rpsinghprinting.com
+                rajsunny223@gmail.com
                 </a>
               </motion.li>
             </ul>
