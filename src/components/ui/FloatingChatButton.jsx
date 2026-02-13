@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const WHATSAPP_NUMBER = "919304259943"; 
 
@@ -33,7 +33,7 @@ const FloatingChatButton = () => {
         }}
         className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-xl"
       >
-        <MessageCircle size={26} />
+        <FaWhatsapp size={26} />
       </motion.a>
     </div>
   );

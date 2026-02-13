@@ -1,16 +1,17 @@
+import React from "react";
 import { motion } from "framer-motion";
+import { Sparkles, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import products from "../data/product";
-import { Sparkles } from "lucide-react";
-import ProductCard from "../components/sections/ProductsSection";
 
 const Products = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans text-slate-900 overflow-x-hidden">
 
-      {/* HERO SECTION */}
       <section className="relative h-[75vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
 
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2000&auto=format&fit=crop"
@@ -22,14 +23,11 @@ const Products = () => {
             }}
           />
 
-          {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/60" />
 
-          {/* Premium Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
         </div>
 
-        {/* Hero Content */}
         <div className="relative z-10 text-center px-6 max-w-5xl">
 
           <motion.div
@@ -73,34 +71,64 @@ const Products = () => {
 
       </section>
 
-
-      {/* PRODUCTS SECTION */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-
-        {/* Section Intro */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold font-serif mb-4">
-            Our Product Range
-          </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">
-            From ID cards to premium brochures, we deliver precision and quality in every piece.
-          </p>
-        </motion.div>
-
-        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+          {products.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="relative h-64 overflow-hidden bg-slate-100">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={`w-full h-full object-cover transition-transform duration-700 
+                    ${item.isComingSoon ? "blur-[2px] grayscale-[0.5]" : "group-hover:scale-110"}`}
+                />
+
+                {item.isComingSoon && (
+                  <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center">
+                    <span className="bg-white/90 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-900">
+                      Coming Soon
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-serif">
+                  {item.title}
+                </h3>
+                <p className="text-slate-500 text-sm mb-8 leading-relaxed flex-1">
+                  {item.desc}
+                </p>
+
+                <button
+                  onClick={() => !item.isComingSoon && navigate(`/products/${item.id}`)}
+                  disabled={item.isComingSoon}
+                  className={`w-full py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2
+                    ${item.isComingSoon
+                      ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                      : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95 shadow-lg shadow-pink-100"}`}
+                >
+                  {item.isComingSoon ? (
+                    "Coming Soon"
+                  ) : (
+                    <>
+                      View Details <ArrowRight size={14} />
+                    </>
+                  )}
+                </button>
+              </div>
+            </motion.div>
           ))}
         </div>
-
       </div>
-    </div >
+    </div>
   );
 };
 

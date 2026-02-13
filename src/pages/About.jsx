@@ -81,7 +81,7 @@ const AboutContent = () => {
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
               Crafting Quality Prints <br className="hidden sm:block" />
-              <span className="text-pink-600">Since 2019</span>
+              <span className="text-pink-600">Since 2022</span>
             </h2>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">

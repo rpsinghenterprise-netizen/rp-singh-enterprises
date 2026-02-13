@@ -158,8 +158,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-5 text-gray-400">
               <motion.li variants={linkVariants}>
-                123 Print Street, Business District <br />
-                City – 110001
+               Block Gate Taxi Stand Sangrampur city-Munger <br />813212
               </motion.li>
               <motion.li variants={linkVariants}>
                 <a href="tel:+919304259943" className="hover:text-pink-500 transition">

@@ -50,17 +50,38 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       label: "Visit Us",
-      value: "123 Print Street, Business District, City - 110001",
+      value: (
+        <a href="https://maps.app.goo.gl/jbWvvdV34qA2ay9V8"
+          target="blank"
+          rel="noopener noreferrer"
+          className="hover:text-pink-600 transition underline-offset-4"
+        >
+          Block Gate Taxi Stand Sangrampur Munger 813212
+        </a>
+      )
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: "Call Us",
-      value: "+91 98765 43210",
+      value: (<a
+        href="tel:+919304259943"
+        className="hover:text-pink-600 transition underline-offset-4"
+      >
+        +91 93042 59943
+      </a>
+      )
     },
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email Us",
-      value: "info@rpsinghprinting.com",
+      value: (
+        <a
+          href="mailto:rajsunny223@gmail.com"
+          className="hover:text-pink-600 transition underline-offset-4 "
+        >
+          rajsunny223@gmail.com
+        </a>
+      )
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -73,12 +94,12 @@ const Contact = () => {
     <>
       {/* HEADER */}
 
-        <section className="relative h-[450px] sm:h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[450px] sm:h-[500px] flex items-center justify-center overflow-hidden">
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://plus.unsplash.com/premium_photo-1661301053519-880c720aadcd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-            alt="Contact Background" 
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661301053519-880c720aadcd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Contact Background"
             className="w-full h-full object-cover"
           />
           {/* Dark Gradient Overlay for Readability */}

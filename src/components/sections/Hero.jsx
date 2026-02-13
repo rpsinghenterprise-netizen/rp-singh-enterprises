@@ -30,7 +30,7 @@ const Hero = () => {
           className="inline-flex px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur mb-8"
         >
           <span className="text-gray-300 text-xs font-semibold tracking-widest uppercase">
-            Premium Printing Services Since 2009
+            Premium Printing Services Since 2022
           </span>
         </motion.div>
 
@@ -65,14 +65,17 @@ const Hero = () => {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"
         >
-          <button className="px-8 py-4 bg-[#D4AF37] text-black font-semibold rounded-full flex items-center gap-2 hover:scale-105 transition">
+          <Link
+            to="/products"
+            className="px-8 py-4 bg-[#D4AF37] text-black font-semibold rounded-full flex items-center gap-2 hover:scale-105 transition justify-center"
+          >
             Our Products <ArrowRight size={20} />
-          </button>
+          </Link>
 
-         <Link to ="/contact" >
-          <button className="px-8 py-4 border border-white/30 text-white font-bold rounded-full hover:border-pink-600 hover:text-pink-600 transition hover:scale-105">
-            Get a Quote
-          </button>
+          <Link to="/contact" >
+            <button className="px-8 py-4 border border-white/30 text-white font-bold rounded-full hover:border-pink-600 hover:text-pink-600 transition hover:scale-105">
+              Get a Quote
+            </button>
           </Link>
         </motion.div>
       </div>
