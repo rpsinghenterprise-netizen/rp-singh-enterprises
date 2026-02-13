@@ -1,6 +1,6 @@
 // console.log("FOOTER RENDERED");
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 
@@ -55,6 +55,17 @@ const linkVariants = {
 };
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleFooterNavigate = (path) => (e) => {
+    e.preventDefault();
+    if (location.pathname !== path) {
+      navigate(path);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <motion.footer
       initial={{ opacity: 0 }}
@@ -75,7 +86,7 @@ const Footer = () => {
 
           {/* BRAND */}
           <motion.div variants={columnVariants}>
-            <Link to="/" className="flex items-center gap-4 mb-8">
+            <Link to="/" onClick={handleFooterNavigate("/")} className="flex items-center gap-4 mb-8">
               <motion.div 
                 className="w-14 h-14 rounded-full bg-white flex items-center justify-center"
                 whileHover={{ scale: 1.1, rotate: 5 }}
@@ -119,6 +130,7 @@ const Footer = () => {
                 <motion.li key={i} variants={linkVariants}>
                   <Link
                     to={link.href}
+                    onClick={handleFooterNavigate(link.href)}
                     className="group text-gray-400 hover:text-pink-500 transition flex items-center gap-2"
                   >
                     <motion.span 
@@ -142,6 +154,7 @@ const Footer = () => {
                 <motion.li key={i} variants={linkVariants}>
                   <Link
                     to="/services"
+                    onClick={handleFooterNavigate("/services")}
                     className="text-gray-400 hover:text-pink-500 transition"
                   >
                     {service}
