@@ -67,13 +67,13 @@ const Hero = () => {
         >
           <Link
             to="/products"
-            className="px-8 py-4 bg-[#D4AF37] text-black font-semibold rounded-full flex items-center gap-2 hover:scale-105 transition justify-center"
+            className="px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-4 bg-[#D4AF37] text-black font-semibold rounded-full flex items-center gap-2 hover:scale-105 transition justify-center text-sm sm:text-base md:text-lg whitespace-nowrap"
           >
-            Our Products <ArrowRight size={20} />
+            Our Products <ArrowRight size={18} className="sm:hidden" /><ArrowRight size={20} className="hidden sm:block" />
           </Link>
 
-          <Link to="/contact" >
-            <button className="px-8 py-4 border border-white/30 text-white font-bold rounded-full hover:border-pink-600 hover:text-pink-600 transition hover:scale-105">
+          <Link to="/contact" className="w-full sm:w-auto">
+            <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-4 border border-white/30 text-white font-bold rounded-full hover:border-pink-600 hover:text-pink-600 transition hover:scale-105 text-sm sm:text-base md:text-lg whitespace-nowrap">
               Get a Quote
             </button>
           </Link>

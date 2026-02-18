@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Tag, Layers } from "lucide-react";
+import { ArrowLeft, Tag, Layers, ArrowRight } from "lucide-react";
 import products from "../data/product";
 
 const categoryLabels = {
@@ -12,6 +12,7 @@ const categoryLabels = {
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const product = products.find((item) => String(item.id) === String(id));
 
   useEffect(() => {
@@ -37,6 +38,11 @@ export default function ProductDetail() {
       </section>
     );
   }
+
+  // Get products from same category
+  const categoryProducts = products.filter(
+    (item) => item.category === product.category && item.id !== product.id
+  );
 
   return (
     <section className="min-h-screen bg-[#fafafa] text-slate-900">
@@ -116,6 +122,85 @@ export default function ProductDetail() {
             )}
           </motion.div>
         </div>
+
+        {categoryProducts.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-24 pt-16 border-t border-slate-200"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-3 font-serif">
+                More {categoryLabels[product.category] || product.category} Products
+              </h2>
+              <div className="w-20 h-1 bg-pink-600 rounded-full" />
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {categoryProducts.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="relative h-64 overflow-hidden bg-slate-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={`w-full h-full object-cover transition-transform duration-700 
+                        ${item.isComingSoon ? "blur-[2px] grayscale-[0.5]" : "group-hover:scale-110"}`}
+                    />
+
+                    {item.isComingSoon && (
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center">
+                        <span className="bg-white/90 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-900">
+                          Coming Soon
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-8 flex flex-col flex-1">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 font-serif">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm mb-8 leading-relaxed flex-1">
+                      {item.desc}
+                    </p>
+
+                    <button
+                      onClick={() => !item.isComingSoon && navigate(`/products/${item.id}`)}
+                      disabled={item.isComingSoon}
+                      className={`w-full py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2
+                        ${item.isComingSoon
+                          ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                          : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95 shadow-lg shadow-pink-100"}`}
+                    >
+                      {item.isComingSoon ? (
+                        "Coming Soon"
+                      ) : (
+                        <>
+                          View Details <ArrowRight size={14} />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
