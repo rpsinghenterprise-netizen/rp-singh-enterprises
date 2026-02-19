@@ -9,6 +9,7 @@ const categoryLabels = {
   "visiting-card": "Visiting Card",
   marketing: "Marketing Material",
 };
+const WHATSAPP_NUMBER = "919304259943";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -44,19 +45,31 @@ export default function ProductDetail() {
   const categoryProducts = products.filter(
     (item) => item.category === product.category && item.id !== product.id
   );
+  const productCategoryLabel = categoryLabels[product.category] || product.category;
+  const whatsappMessage = encodeURIComponent(
+    `Hello, I want to enquire about this product.
+
+Product: ${product.title}
+Product ID: #${product.id}
+Category: ${productCategoryLabel}
+Details: ${product.desc}
+
+Please share price and availability.`
+  );
+  const whatsappEnquiryUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
   return (
     <section className="min-h-screen bg-[#fafafa] text-slate-900">
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 sm:pt-32 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-8 md:mb-10"
         >
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-pink-600 transition-colors"
+            className="w-fit inline-flex items-center gap-2 text-[11px] sm:text-sm font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-slate-500 hover:text-pink-600 transition-colors"
           >
             <ArrowLeft size={16} />
             Back to Products
@@ -101,7 +114,7 @@ export default function ProductDetail() {
               <div className="flex items-center gap-3 text-slate-700">
                 <Layers size={18} />
                 <span className="font-medium">
-                  Category: {categoryLabels[product.category] || product.category}
+                  Category: {productCategoryLabel}
                 </span>
               </div>
             </div>
@@ -114,12 +127,14 @@ export default function ProductDetail() {
                 Coming Soon
               </button>
             ) : (
-              <Link
-                to="/contact"
+              <a
+                href={whatsappEnquiryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] bg-pink-600 text-white hover:bg-pink-700 active:scale-[0.99] transition-all"
               >
                 Enquire Now
-              </Link>
+              </a>
             )}
           </motion.div>
         </div>
@@ -141,7 +156,7 @@ export default function ProductDetail() {
             >
               <div>
                 <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-3 font-serif">
-                  More {categoryLabels[product.category] || product.category} Products
+                  More {productCategoryLabel} Products
                 </h2>
                 <div className="w-20 h-1 bg-pink-600 rounded-full" />
               </div>

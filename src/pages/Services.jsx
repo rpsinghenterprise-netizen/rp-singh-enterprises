@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Printer, 
@@ -98,6 +99,15 @@ const pricingPlans = [
     highlight: false
   }
 ];
+const WHATSAPP_NUMBER = "919304259943";
+const customSolutionWhatsAppUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  `Hello, I need a custom printing solution.
+
+Service: Custom Solution
+Requirement: Specialized project quote
+
+Please share pricing and next steps.`
+)}`;
 
 // --- Animation Variants ---
 const containerVariants = {
@@ -218,8 +228,12 @@ const ServicesPage = () => {
             ))}
             
             {/* "More" Card Filler */}
-            <motion.div 
+            <motion.a 
               variants={cardVariants}
+              href={customSolutionWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contact on WhatsApp for a custom solution"
               className="rounded-2xl p-6 sm:p-8 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center hover:border-pink-400 hover:bg-pink-50/30 transition-all duration-300 group cursor-pointer min-h-75"
             >
               <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -229,7 +243,7 @@ const ServicesPage = () => {
               <p className="text-slate-500 text-sm max-w-50">
                 Contact our engineering team for specialized project quotes.
               </p>
-            </motion.div>
+            </motion.a>
           </motion.div>
         </div>
       </section>
@@ -254,7 +268,8 @@ const ServicesPage = () => {
             <p className="text-slate-300 text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed">
               Get in touch with us today for a free quote. We're here to help bring your vision to life with professional quality.
             </p>
-            <motion.button
+            <Link to="/contact">
+              <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 bg-amber-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg shadow-black/50 hover:bg-amber-600 transition-all"
@@ -262,6 +277,7 @@ const ServicesPage = () => {
               Contact Us Now
               <ArrowRight className="w-5 h-5" />
             </motion.button>
+              </Link>
           </motion.div>
         </div>
       </section>
