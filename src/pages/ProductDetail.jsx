@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Tag, Layers, ArrowRight } from "lucide-react";
@@ -13,6 +13,7 @@ const categoryLabels = {
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [showAllProducts, setShowAllProducts] = useState(false);
   const product = products.find((item) => String(item.id) === String(id));
 
   useEffect(() => {
@@ -136,16 +137,18 @@ export default function ProductDetail() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mb-12"
+              className="mb-12 flex items-center justify-between"
             >
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-3 font-serif">
-                More {categoryLabels[product.category] || product.category} Products
-              </h2>
-              <div className="w-20 h-1 bg-pink-600 rounded-full" />
+              <div>
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-3 font-serif">
+                  More {categoryLabels[product.category] || product.category} Products
+                </h2>
+                <div className="w-20 h-1 bg-pink-600 rounded-full" />
+              </div>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {categoryProducts.map((item, index) => (
+              {(showAllProducts ? categoryProducts : categoryProducts.slice(0, 4)).map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -199,6 +202,38 @@ export default function ProductDetail() {
                 </motion.div>
               ))}
             </div>
+
+            {categoryProducts.length > 4 && !showAllProducts && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mt-12 flex justify-center"
+              >
+                <button
+                  onClick={() => setShowAllProducts(true)}
+                  className="px-8 py-4 bg-pink-600 text-white font-bold rounded-full hover:bg-pink-700 transition-all hover:scale-105 text-sm md:text-base flex items-center gap-2"
+                >
+                  View All Products <ArrowRight size={18} />
+                </button>
+              </motion.div>
+            )}
+
+            {showAllProducts && categoryProducts.length > 4 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mt-12 flex justify-center"
+              >
+                <button
+                  onClick={() => setShowAllProducts(false)}
+                  className="px-8 py-4 bg-slate-200 text-slate-900 font-bold rounded-full hover:bg-slate-300 transition-all hover:scale-105 text-sm md:text-base"
+                >
+                  Show Less
+                </button>
+              </motion.div>
+            )}
           </motion.div>
         )}
       </div>
