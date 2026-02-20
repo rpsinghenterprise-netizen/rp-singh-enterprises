@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -19,22 +20,30 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // ✅ JSX version (no TS types)
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // ✅ JSX version (no TS types)
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // fake submit
-    await new Promise((res) => setTimeout(res, 1000));
+  try {
+    await emailjs.send(
+      "service_057ioh4",     // yaha apna Service ID
+      "template_kwbxhij",    // yaha apna Template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      },
+      "M2e4q0l3oLLcfCvk5"      // yaha apna Public Key
+    );
 
-    alert("Message Sent! We’ll get back to you soon.");
+    alert("Message Sent Successfully 🚀");
 
     setFormData({
       name: "",
@@ -43,8 +52,13 @@ const Contact = () => {
       message: "",
     });
 
-    setIsSubmitting(false);
-  };
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong 😢");
+  }
+
+  setIsSubmitting(false);
+};
 
   const contactInfo = [
     {
@@ -241,3 +255,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
