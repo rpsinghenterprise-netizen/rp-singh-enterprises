@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Priya Sharma",
+    name: "Sarad",
     role: "Founder",
     company: "TechStart Solutions",
     rating: 5,
