@@ -15,7 +15,7 @@ const testimonials = [
     id: 2,
     name: "Sarad",
     role: "Founder",
-    company: "TechStart Solutions",
+    company: "",
     rating: 5,
     review:
       "Our visiting cards look premium and elegant. The paper quality and print sharpness exceeded expectations. We’ve received great feedback from our clients.",
