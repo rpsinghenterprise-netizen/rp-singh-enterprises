@@ -90,10 +90,10 @@ const AboutContent = () => {
               and we provide crisp, tamper-resistant cards designed for daily wear.
             </p>
 
-          </*p className="text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          </p className="text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               From business essentials to large-scale branding, we focus on
               precision, consistency, and customer satisfaction in every job.
-            <*/p>
+            </p>
 
             {/* HIGHLIGHTS */}
             <ul className="space-y-4 max-w-xl mx-auto lg:mx-0">
