@@ -30,7 +30,7 @@ const AboutHero = () => (
         </span>
       </h1>
       <p className="text-slate-300 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
-       R.P. Singh Printing Enterprises has been delivering exceptional quality and service for over  <span className="text-white font-bold">3 years</span>.
+       R.P. Singh Enterprises has been delivering exceptional quality and service for over  <span className="text-white font-bold">4 years</span>.
       </p>
     </motion.div>
   </section>
@@ -80,20 +80,20 @@ const AboutContent = () => {
             </span>
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-              Crafting Quality Prints <br className="hidden sm:block" />
-              <span className="text-pink-600">Since 2022</span>
+              Your Identity, Professionally Crafted <br className="hidden sm:block" />
+              <span className="text-pink-600">Premium ID Solutions Since 2022</span>
             </h2>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
-              R.P. Singh Enterprises is a trusted name in the printing
-              industry, delivering premium quality prints using modern machines
-              and skilled craftsmanship.
+              R.P. Singh Enterprises is a trusted name in the I'd Card printing
+              industry, delivering premium quality prints using modern thermal and inkjet technology
+              and we provide crisp, tamper-resistant cards designed for daily wear.
             </p>
 
-            <p className="text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          </*p className="text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               From business essentials to large-scale branding, we focus on
               precision, consistency, and customer satisfaction in every job.
-            </p>
+            <*/p>
 
             {/* HIGHLIGHTS */}
             <ul className="space-y-4 max-w-xl mx-auto lg:mx-0">
