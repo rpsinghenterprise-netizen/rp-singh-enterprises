@@ -4,39 +4,39 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Rajesh Kumar",
+    name: "Himanshu Shekhar Jha",
     role: "Principal",
-    company: "city central public school",
+    company: "Gov. School",
     rating: 5,
     review:
-     "The ID cards were printed with excellent clarity and durability. The lamination quality and finish were truly professional. Highly recommended for bulk school ID card orders.",
+     "The ID cards were printed with excellent clarity and durability. The quality and finish were truly professional. Highly recommended for bulk school ID card orders.",
   },
   {
     id: 2,
-    name: "Sarad",
-    role: "Founder",
+    name: "Sharad",
+    role: "School Director",
     company: "",
     rating: 5,
     review:
-      "Our visiting cards look premium and elegant. The paper quality and print sharpness exceeded expectations. We’ve received great feedback from our clients.",
+      "R.P Singh Enterprises provide professinol quality, design and finishing they also fast services and reasonable price. High recommended for school.",
   },
   {
     id: 3,
-    name: "Amit Verma",
-    role: "Event Coordinator",
-    company: "Celebration Events",
+    name: "Sushma Kumari",
+    role: "Principal",
+    company: "Deep Public School",
     rating: 5,
     review:
       "Fast turnaround and excellent customer service. They handled our bulk order of ID cards perfectly.",
   },
   {
     id: 4,
-    name: "Sunita Patel",
-    role: "Restaurant Owner",
-    company: "Spice Garden",
+    name: "Sourav & Shrikant Singh",
+    role: "CSC Owner",
+    company: "CSC",
     rating: 4,
     review:
-      "Beautiful menu cards and promotional materials. The team understood our brand vision perfectly.",
+      "Beautiful PVC cards and promotional materials. The team understood our brand vision perfectly.",
   },
 ];
 
